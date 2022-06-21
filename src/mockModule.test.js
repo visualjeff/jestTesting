@@ -15,17 +15,21 @@ jest.mock("./sampleModule", () => {
   });
 
 describe("mocked", () => {
-  it("testing mocking module - default", () => {
+  beforeEach(() => {
+    jest.resetModules();
+  });
+
+  test("testing mocking module - default", () => {
     const result = index();
     expect(result).toEqual('mocked default export');
   });
 
-  it("testing mocking module - add", () => {
+  test("testing mocking module - add", () => {
     const result = add(5, 4);
     expect(result).toEqual(54);
   });
 
-  it("testing mocking module - subtract", () => {
+  test("testing mocking module - subtract", () => {
     const result = subtract(5, 4);
     expect(result).toEqual(45);
   });

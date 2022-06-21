@@ -11,6 +11,10 @@ subtract.mockImplementation(jest.fn(() => {
 }));
 
   describe("mocked", () => {
+    beforeEach(() => {
+      jest.resetModules();
+    });
+
     it('automocked implementation?', () => {
         // now we have the mocked implementation,
         expect(index._isMockFunction).toBeTruthy();
@@ -18,17 +22,17 @@ subtract.mockImplementation(jest.fn(() => {
         expect(subtract._isMockFunction).toBeTruthy();
       });
 
-    it("testing mocking module - default", () => {
+    test("testing mocking module - default", () => {
       const result = index();
       expect(result).toEqual('mocked default export');
     });
   
-    it("testing mocking module - add", () => {
+    test("testing mocking module - add", () => {
       const result = add(5, 4);
       expect(result).toEqual(54);
     });
   
-    it("testing mocking module - subtract", () => {
+    test("testing mocking module - subtract", () => {
       const result = subtract(5, 4);
       expect(result).toEqual(45);
     });

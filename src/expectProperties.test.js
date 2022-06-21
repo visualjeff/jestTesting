@@ -38,7 +38,7 @@ describe("mocked tests", () => {
     }
   }
 
-  it("testing mocking module - servicePayload", () => {
+  test("testing mocking module - servicePayload", () => {
     setup().then(({ mockedModule }) => {
       const houseForSale = mockedModule.servicePayload();
       // Example Referencing

@@ -20,7 +20,7 @@ describe("mocked tests", () => {
     }
   }
 
-  it('automocked implementation?', () => {
+  test('automocked implementation?', () => {
     setup().then(({ mockedModule }) => {
         expect(mockedModule.default._isMockFunction).toBeTruthy();
         expect(mockedModule.add._isMockFunction).toBeTruthy();
@@ -28,7 +28,7 @@ describe("mocked tests", () => {
     });
   });
 
-  it("testing mocking module - default", () => {
+  test("testing mocking module - default", () => {
     const EXPECTED_VALUE = "override";
     setup({ default: spyReturns(EXPECTED_VALUE)}).then(({ mockedModule }) => {
         const result = mockedModule.default();
@@ -36,14 +36,14 @@ describe("mocked tests", () => {
     });
   });
 
-  it("testing mocking module - add", () => {
+  test("testing mocking module - add", () => {
     setup().then(({ mockedModule }) => {
         const result = mockedModule.add(5, 4);
         expect(result).toEqual(54);
     });
   });
 
-  it("testing mocking module - subtract", () => {
+  test("testing mocking module - subtract", () => {
     setup().then(({ mockedModule }) => {
         const result = mockedModule.subtract(5, 4);
         expect(result).toEqual(45);
